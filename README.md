@@ -32,11 +32,11 @@ Now connect:
 
 Now you can try the following:
 
-Send ctrl-c to headTracker, then to target.
+Send ctrl-c to headTracker, then send ctrl-c to target.
 
 This is fine.
 
-Send ctrl-c to target and then to headTracker.
+Send ctrl-c to target and then send ctrl-c headTracker.
 
 This is not fine. headTracker hangs.
 
@@ -51,7 +51,7 @@ Now un-comment the call to tracker.interrupt();
     }
 ```
 
-Send ctrl-c to target and then to headTracker.
+Send ctrl-c to target and then send ctrl-c headTracker.
 
 Now this is also fine, because the signal handler calls tracker.interrupt() which in turns
 calls targetPort.interrupt(). This has the effect to unblock all pending read on the port.
