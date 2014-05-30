@@ -9,21 +9,10 @@ class Tracker
 {
    yarp::os::BufferedPort<yarp::os::Bottle> targetPort;
    
-   yarp::dev::PolyDriver robotHead;
-   yarp::dev::IVelocityControl *iVelocity;
-   yarp::dev::IEncoders *iEncoders;
-
-   yarp::dev::IPositionControl *iPosition;
-   
+  
 public:
 
-    Tracker()
-    {
-        // constructor
-        iVelocity=0;
-        iEncoders=0;
-        iPosition=0;
-    }
+    Tracker() {}
 
     bool open();
 
@@ -31,12 +20,7 @@ public:
 
     void loop(); 
 
-    void interrupt()
-    {
-        targetPort.interrupt();
-        
-    }
-
+    void interrupt();
 };
 
    

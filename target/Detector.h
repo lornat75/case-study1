@@ -4,8 +4,6 @@
 
 class Detector
 {
-    yarp::os::BufferedPort<yarp::sig::ImageOf<yarp::sig::PixelRgb> > imagePort;  // make a port for reading images
-    yarp::os::BufferedPort<yarp::sig::ImageOf<yarp::sig::PixelRgb> > outPort;
     yarp::os::BufferedPort<yarp::os::Bottle> targetPort;
 
 public:
@@ -17,9 +15,9 @@ public:
 
     bool open()
     {
-          imagePort.open("/objectDetector/image/in");  // give the port a name
-          outPort.open("/objectDetector/image/out");
-          targetPort.open("/objectDetector/target");
+          //omitted: create ports for reading images
+
+          targetPort.open("/detector/target");
 
           return true;
     }

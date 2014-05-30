@@ -38,7 +38,7 @@ public:
 
     bool interruptModule()
     {
-        tracker.interrupt();
+        // tracker.interrupt();
 
         return true;
     }
