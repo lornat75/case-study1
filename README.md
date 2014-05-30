@@ -11,8 +11,11 @@ Compiling
 =======
 
 git clone url
+
 cd case-study
+
 mkdir build
+
 cmake ../
 
 make
@@ -24,33 +27,36 @@ Make sure you are running yarpserver.
 
 In two separate terminals run:
 
-./target
-./headTracker
+    ./target/target
+    ./headTracker/headTracker
 
 Now connect:
 
-yarp connect /detector/target /headTracker/target
+     yarp connect /detector/target /headTracker/target
 
 Now you can try the following:
 
 Send ctrl-c to headTracker, then to target.
+
 This is fine.
 
 Send ctrl-c to target and then to headTracker.
-This is not fine. headTracker hangs.
 
+This is not fine. headTracker hangs.
 
 Now un-comment the call to tracker.interrupt();
 
-bool TrackerModule:: interruptModule()
-{
+```C++
+    bool TrackerModule:: interruptModule()
+    {
        // tracker.interrupt();
 
         return true;
-}
-
+    }
+```
 
 Send ctrl-c to target and then to headTracker.
+
 Now this is also fine, because the signal handler calls tracker.interrupt() which in turns
 calls targetPort.interrupt(). This has the effect to unblock all pending read on the port.
 
