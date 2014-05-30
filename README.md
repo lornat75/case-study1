@@ -10,15 +10,11 @@ to stop the head, park it and unitialize the device for controlling the head.
 Compiling
 =======
 
-git clone url
-
-cd case-study
-
-mkdir build
-
-cmake ../
-
-make
+    git clone url
+    cd case-study
+    mkdir build
+    cmake ../
+    make
 
 Running
 =======
