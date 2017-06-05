@@ -5,6 +5,7 @@
 #include <yarp/dev/PolyDriver.h>
 #include <yarp/dev/ControlBoardInterfaces.h>
 
+// A tracker class
 class Tracker
 {
    yarp::os::BufferedPort<yarp::os::Bottle> targetPort;
